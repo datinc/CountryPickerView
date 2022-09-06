@@ -23,8 +23,8 @@ public struct Country: Equatable {
     }
     public var flag: UIImage {
         // Cocoapods || SPM
-        return UIImage(named: "Images/\(code.uppercased())", in: Bundle._module, compatibleWith: nil) ??
-            UIImage.init(named: code.uppercased(), in: Bundle._module, compatibleWith: nil)!
+        return UIImage(named: "Images/\(code.uppercased())", in: Bundle.module, compatibleWith: nil) ??
+            UIImage.init(named: code.uppercased(), in: Bundle.module, compatibleWith: nil)!
     }
 }
 
@@ -173,8 +173,8 @@ public class CountryPickerView: NibView {
     public let countries: [Country] = {
         var countries = [Country]()
         // Cocoapods || SPM
-        let path = Bundle._module.path(forResource: "Data/CountryCodes", ofType: "json") ??
-            Bundle._module.path(forResource: "CountryCodes", ofType: "json")
+        let path = Bundle.module.path(forResource: "Data/CountryCodes", ofType: "json") ??
+            Bundle.module.path(forResource: "CountryCodes", ofType: "json")
         guard let jsonPath = path, let jsonData = try? Data(contentsOf: URL(fileURLWithPath: jsonPath)) else {
             return countries
         }

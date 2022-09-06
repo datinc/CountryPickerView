@@ -32,7 +32,7 @@ public class NibView: UIView {
     
     fileprivate func loadViewFromNib() -> UIView {
         let selfName = String(describing: type(of: self))
-        let nib = UINib(nibName: selfName, bundle: Bundle._module)
+        let nib = UINib(nibName: selfName, bundle: Bundle.module)
         let nibView = nib.instantiate(withOwner: self, options: nil).first as! UIView
         return nibView
     }
